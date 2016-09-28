@@ -1,0 +1,31 @@
+/* =Color Options
+-------------------------------------------------------------- */
+.highlight {
+	color: #e36b0a;
+}
+
+#side-nav a.active:after, #side-nav a:hover:after {
+	border: 2px solid #e36b0a;
+}
+
+#side-nav #top:hover:after {
+	border-left: 4px solid #e36b0a;
+	border-top: 4px solid #e36b0a;
+}
+
+.bar-fill {
+	background: #e36b0a;
+}
+
+.timeline .entry .time.on:before {
+	border: 1px solid #e36b0a;
+	background: #e36b0a;
+}
+
+.button {
+	border-bottom: 2px solid #e36b0a;
+}
+
+#submit {
+	border-bottom: 2px solid #e36b0a;
+}
