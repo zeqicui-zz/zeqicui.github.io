@@ -41,6 +41,7 @@
 	<!-- Javascript -->
 	<script src="js/modernizr.js"></script>
 	<script src="js/jquery.js"></script>
+	<script scr="js/nodeweb.js"></script>
 </head>
 <body>
 	<!-- Begin Pageloader -->
@@ -54,6 +55,7 @@
 
 	<!-- Sticky Nav -->
 	<header>
+
 		<!-- Container -->
 		<div class="container">
 			<div class="row header-inner">
@@ -69,21 +71,10 @@
 					<span class="main"></span>
 					<span class="after"></span>
 				</div>
-
-				<!-- Navigation -->
-				<nav class="col-xs-12 col-lg-2 col-lg-offset-8">
-					<ul id="side-nav">
-						<li><a href="#section1">About</a></li>
-						<li><a href="#section2">Portfolio</a></li>
-						<li class="offset"><a href="#section3">Experience</a></li>
-						<li><a href="#section4">Interests</a></li>
-						<li><a href="#section5">Contact</a></li>
-						<li><a id="top" href="#">Top</a></li>
-					</ul>
-				</nav><!-- END Navigation -->
 			</div>
 		</div><!-- END Container -->
 	</header><!-- END Sticky Nav -->
+
 
 	<!-- Begin Hero -->
 	<section class="hero">
@@ -116,7 +107,16 @@
 					<h3>About</h3>
 					<!--<p>First and foremost, you are probably thinking - How the hell do I pronounce this guy's name? <br/> Say it like this: <i>'ze-ki cue'</i>-->
 
-					<img src="background.jpg" alt="Mountain View" style="width:100%; height:auto;"> </p>
+					<div class="hovereffect">
+	        			<img class="img-responsive" src="background.jpg" alt="">
+	            		<div class="overlay">
+							<p> 
+							<a href="#">G i t h u b</a><br>
+							<a href="#">L i n k e d I n</a><br>
+							<a href="#">I n s t a g r a m</a><br>
+							</p> 
+					    </div>
+					</div>
 
 					<p>I like to call myself a multi-disciplinary developer and designer. I'm a highly self-motivated individual who takes action before most people. I take in consideration of not only the engineering aspects of my projects but also from a business, marketing and user experience side. The one rule that all my works follow is that <i> making subjects practical and useful is not enough - it has to be beautiful as well.</i></p>
 
@@ -242,7 +242,7 @@
 					<!-- Project 3 -->
 					<li class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-lg-4 col-lg-offset-2">
 						<div class="hovereffect">
-	        				<img class="img-responsive" src="http://4.bp.blogspot.com/-9tXzSDGqJ5M/UKrU08e5n1I/AAAAAAAADGg/u76tfIksVnU/s1600/blue+lights.jpg" alt="">
+	        				<img class="img-responsive" src="images/portfolio/neighbourfoods.jpg" alt="">
 	            			<div class="overlay">
 	                			<h2>Neighbourfood</h2>
 								<p> 
@@ -265,7 +265,7 @@
 					<!-- Project 4 -->
 					<li class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-0 col-lg-4">
 						<div class="hovereffect">
-	        				<img class="img-responsive" src="http://4.bp.blogspot.com/-9tXzSDGqJ5M/UKrU08e5n1I/AAAAAAAADGg/u76tfIksVnU/s1600/blue+lights.jpg" alt="">
+	        				<img class="img-responsive" src="images/portfolio/steveluka.jpg" alt="">
 	            			<div class="overlay">
 	                			<h2>Steve Luka<br></h2>
 								<p> 
@@ -418,10 +418,10 @@
 			<!-- Content -->
 			<div class="row">
 				<div class="col-xs-12 col-lg-8 col-lg-offset-2">
-					<h3>Connect with me?</h3>
+					<h3>A Playlist for you</h3>
 
 					<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:2qlMTcW6AnnaGl7eXWAZP5&theme=white" width=100% height="400" frameborder="0" allowtransparency="true"></iframe>
-					<p>blah blah blah placeholder</p>
+					
 					<a href="https://ca.linkedin.com/in/zeqicui"><i class="social-icon-linkedin"></i></a>
 					<a href="https://github.com/zeqicui"><i class="social-icon-github"></i></a>
 					
@@ -514,5 +514,6 @@
 	</script>
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>
+	<script scr="js/nodeweb.js"></script>	
 </body>
 </html>
