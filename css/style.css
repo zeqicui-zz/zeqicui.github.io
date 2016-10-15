@@ -169,6 +169,26 @@ below*/
   transform: translate3d(0,0,0);
 }
 
+.projectLinks {
+	font-family: 'Lekton', sans-serif;
+	font-size: 12px;
+	line-height: 12px;
+	color: #212121;
+	letter-spacing: 0.20em;
+	padding-bottom: 20px;
+	-webkit-font-variant-ligatures: no-common-ligatures;
+}
+
+.projectTitle {
+	display: inline;
+	font-family: 'Lekton', sans-serif;
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 40px;
+	color: #212121;
+	padding-bottom: 30px;
+}
+
 
 /* HOVER */
 
