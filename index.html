@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+
+
 <head>
 	<meta charset="utf-8">
 
@@ -41,14 +43,12 @@
 	<!-- Javascript -->
 	<script src="js/modernizr.js"></script>
 	<script src="js/jquery.js"></script>
-	<script scr="js/nodeweb.js"></script>
 </head>
 <body>
 	<!-- Begin Pageloader -->
 	<div id="pageloader">
 		<!-- Content -->
 		<div class="pageloader-content">
-			<img src="images/loading.gif" alt="">
 			<h6>loading</h6>
 		</div><!-- END Content -->
 	</div><!-- END Pageloader -->
@@ -78,6 +78,8 @@
 
 	<!-- Begin Hero -->
 	<section class="hero">
+
+		<canvas id="canvas"></canvas>
 		<div class="container">
 			<!-- Hero Content -->
 			<div class="row hero-content" data-0="opacity: 1; transform: translate3d(0px, 0px, 0px);" data-top-bottom="opacity: 0; transform: translate3d(0px, 300%, 0px);">
@@ -91,9 +93,9 @@
 					<h2>introduction</h2>
 					<h1><span class="highlight">Zeqi Cui</span><br/></h1><h5>Software Developer <br/> &amp; Co-Founder of Steve Luka</h5>
 
-					<div class="iconDisplay"><a href="https://github.com/zeqicui"><i class="social-icon-github"></i></a>
+					<!--<div class="iconDisplay"><a href="https://github.com/zeqicui"><i class="social-icon-github"></i></a>
 					<a href="https://github.com/zeqicui"><i class="social-icon-linkedin"></i></a>
-					<a href="https://github.com/zeqicui"><i class="social-icon-instagram"></i></a></div>
+					<a href="https://github.com/zeqicui"><i class="social-icon-instagram"></i></a></div>-->
 					<a href="#section1" class="scroll-to"></a>
 				</div>
 			</div><!-- END Hero Content -->
@@ -102,6 +104,8 @@
 	
 
 	<div class="container">
+
+
 		<!-- About -->
 		<section id="section1" class="padded-top">
 
@@ -112,18 +116,7 @@
 					<!--<p>First and foremost, you are probably thinking - How the hell do I pronounce this guy's name? <br/> Say it like this: <i>'ze-ki cue'</i>-->
 
 					<img class="img-responsive" src="background.jpg" alt="">
-					<div class="hovereffect">
-	        			<img class="img-responsive" src="background.jpg" alt="">
-	            		<div class="overlay">
-	            		<h2>
-							<p> 
-							<a href="https://github.com/zeqicui"><i class="social-icon-github"></i> G i t h u b</a><br>
-							<a href="https://ca.linkedin.com/in/zeqicui"><i class="social-icon-linkedin"></i> L i n k e d I n</a> <br>
-							<a href=""><i class="social-icon-instagram"></i> I n s t a g r a m</a><br>
-							</p></h2>
-							<br>
-					    </div>
-					</div>
+				
 					<div>
 					<p>
 					I like to call myself a multi-disciplinary developer and designer. I'm a highly self-motivated individual who takes action before most people. I take in consideration of not only the engineering aspects of my projects but also from a business, marketing and user experience side. The one rule that all my works follow is that <i> making subjects practical and useful is not enough - it has to be beautiful as well.</i></p>
@@ -442,6 +435,6 @@
 	</script>
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>
-	<script scr="js/nodeweb.js"></script>	
+	 <script src="js/index.js"></script>
 </body>
 </html>
