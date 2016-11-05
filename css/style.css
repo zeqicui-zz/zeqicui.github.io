@@ -70,6 +70,11 @@ section { overflow: hidden; }
 	}
 }
 
+hr.style2 {
+	border-top: 3px double #e36b0a;
+  background:#e36b0a;
+}
+
 .mfp-title {
     padding-left: 10px;
     padding-top: 10px;
@@ -78,7 +83,6 @@ section { overflow: hidden; }
     font-size: 14px;
     font-style: italic;
 }
-
 
 /*-----------------------------------------------------------
 below*/
@@ -400,7 +404,6 @@ html.html-onload .hero-content {
 }
 
 html.html-loaded .hero-content {
-	animation-duration: 1.5s;
 	-webkit-animation-name: fadeIn;
 			animation-name: fadeIn;
 }

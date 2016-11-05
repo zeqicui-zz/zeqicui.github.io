@@ -11,14 +11,14 @@
 			opts = { //Options, you can change those
 				backgroundColor: "#fff",
 				particleColor: "#000",
-				particleAmount: 130,
+				particleAmount: 70,
 				defaultSpeed: 0.4,
 				addedSpeed: 0,
 				
 				defaultRadius: 1.5,
 				addedRadius: 1.5,
 				
-				communicationRadius: 200, //The radius for the line
+				communicationRadius: 300, //The radius for the line
 			},
 			particles = [],
 			
