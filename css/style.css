@@ -90,6 +90,7 @@ below*/
 canvas {
   display: block;
   vertical-align: bottom;
+
 }
 
 /* ---- particles.js container ---- */
@@ -98,13 +99,13 @@ canvas {
   position: absolute;
   width: 100%;
   height: 100%;
+  opacity: 0.4;
   background-color: #fff;
   background-image: url("");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
 }
-
 
 
 .hovereffect {
