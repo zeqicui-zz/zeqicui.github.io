@@ -1,131 +1,133 @@
-(function(){
-	var canvasBody = document.getElementById("canvas"),
-			canvas = canvasBody.getContext("2d"),
-			
-			w = canvasBody.width = window.innerWidth, //Full width
-			h = canvasBody.height = window.innerHeight, //Full height
-			
-			tick = 0, //Tick in time
-			
-			//YOU CAN CHANGE OPTIONS HERE. DO NOT REALLY MESS WITH STUFF BELOW THAT
-			opts = { //Options, you can change those
-				backgroundColor: "#fff",
-				particleColor: "#000",
-				particleAmount: 70,
-				defaultSpeed: 0.4,
-				addedSpeed: 0,
-				
-				defaultRadius: 1.5,
-				addedRadius: 1.5,
-				
-				communicationRadius: 300, //The radius for the line
-			},
-			particles = [],
-			
-			Particle = function(Xpos, Ypos){ 
-				this.x = Xpos ? Xpos : Math.random()*w; //If there is not position stated, it takes a random position
-				this.y = Ypos ? Ypos : Math.random()*h; //Same here
-				this.speed = opts.defaultSpeed + Math.random()*opts.addedSpeed; //Speed + a bit of random one
-				this.directionAngle = Math.floor(Math.random()*360); //The angle of this particle its moving. !!!! TRUE ONLY ON INIT
-				this.color = opts.particleColor;
-				this.radius = opts.defaultRadius + Math.random()*opts.addedRadius; //Radius + a bit of random radius
-				this.d = { //Object, stores directions. Computes directions according to the random this.directionAngle
-					x: Math.cos(this.directionAngle)*this.speed,
-					y: Math.sin(this.directionAngle)*this.speed
-				};
-				this.update = function(){ //The update function. The function that calculates next coordinates
-					this.border(); //Checks if this particles touches the border and THEN computes the next coordinates
-					this.x += this.d.x; //Just adding the direction to the X
-					this.y += this.d.y; //Same but with Y
-				};
-				this.border = function(){ //The border function. Checks if this thing touches the border
-					if(this.x >= w || this.x <= 0){ //X walls
-						this.d.x *= -1;
-					}
-					if(this.y >= h || this.y <= 0){ //Floor and ceiling
-						this.d.y *= -1;
-					}
-					this.x > w ? this.x = w : this.x; //This is really important.
-					this.y > h ? this.y = h : this.y; //Same
-					this.x < 0 ? this.x = 0 : this.x; //Same
-					this.y < 0 ? this.y = 0 : this.y; //Same
-					/* line ~49 explanation
-						Because sometimes the speed of the particle can be faster, so it doesn't touch the border - it goes through. And when it goes back it doesn't go all the way inside - it stucks there. So, you have to set the X to the point when it touches. Same with Y
-					*/
-					
-				};
-				this.draw = function(){ //Just draws the points. Pretty easy. Takes the coords, color, radius - draws.
-					canvas.beginPath();
-					canvas.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-					canvas.closePath();
-					canvas.fillStyle = this.color;
-					canvas.fill();
-				};
-			},
-			checkDistance = function(x1, y1, x2, y2){ //You got it. The point on the graph distance formula.
-				return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-			},
-			//Here goes the function that makes lines!
-			// @param point1 -	The point that check for neighboors
-			// @param father - 	The array the point suppose to take thing from
-			communicatePoints = function(point1, father){ 
-				for(var i = 0; i < father.length; i++){
-					var distance = checkDistance(point1.x, point1.y, father[i].x, father[i].y);
-					var opacity = 1 - distance/opts.communicationRadius;
-					if (opacity > 0){ //Draws the line
-						canvas.lineWidth = 0.5;
-						canvas.strokeStyle = "rgba(0,0,0,opacity)".replace("opacity", opacity);
-						canvas.beginPath();
-						canvas.moveTo(point1.x, point1.y);
-						canvas.lineTo(father[i].x, father[i].y);
-						canvas.closePath();
-						canvas.stroke();
-					}
-				}
-			};
-	
-	function setup(){ //Function called once to set everything up
-		for(var i = 0; i < opts.particleAmount; i++){
-			particles.push( new Particle() );
-		}
-		window.requestAnimationFrame(loop);
-	}
-	
-	function loop(){ //Function of loop that will be called for a frame of the animation
-		window.requestAnimationFrame(loop);
-		tick++;
-		
-		//Drawing the background. Basically clearing the frame that was before
-		canvas.fillStyle = opts.backgroundColor;
-		canvas.fillRect(0,0,w,h);
-		
-		//Executing particle functions
-		for(var i = 0; i < particles.length; i++){
-			particles[i].update();
-			particles[i].draw();
-		}
-		//Executing lines
-		for(var a = 0; a < particles.length; a++){
-			communicatePoints(particles[a], particles);
-		}
-	}
-	
-	//Executing the animation
-	setup();
-	
-	//Some event listeners for backup to look professional
-	window.addEventListener("resize", function(){
-		w = canvasBody.width = window.innerWidth;
-		h = canvasBody.height = window.innerHeight;
-	});
-	
-	//The thing that adds a point. Basically, we pass the coords of the mouse. And they are applied instead of randomness. Check the line 26, 28 to know
-	canvasBody.addEventListener("click", function(e){
-		particles.push( new Particle(e.pageX, e.pageY) );
-	});
-	//The thing that removes a point.
-	canvasBody.addEventListener("contextmenu", function(e){
-		e.preventDefault();
-		particles.splice(particles.length - 1, 1); //Takes the last thing from the particles[];
-	});
-})();
+/* ---- particles.js config ---- */
+
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 80,
+      "density":{
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#000"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 1.0,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#000",
+      "opacity": 0.7,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 1,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "grab"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 140,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+});
+
+
+/* ---- stats.js config ---- */
+
+var count_particles, stats, update;
+stats = new Stats;
+stats.setMode(0);
+stats.domElement.style.position = 'absolute';
+stats.domElement.style.left = '0px';
+stats.domElement.style.top = '0px';
+document.body.appendChild(stats.domElement);
+count_particles = document.querySelector('.js-count-particles');
+update = function() {
+  stats.begin();
+  stats.end();
+  if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+  }
+  requestAnimationFrame(update);
+};
+requestAnimationFrame(update);

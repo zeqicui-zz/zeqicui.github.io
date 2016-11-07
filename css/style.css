@@ -88,24 +88,23 @@ hr.style2 {
 below*/
 
 canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.3;
+  display: block;
+  vertical-align: bottom;
 }
 
-label {
-  display: block;
-  position: relative;
-  color: rgba(255, 255, 255, 0.8);
-  margin: 10px;
-  font: 12px monospace;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+/* ---- particles.js container ---- */
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }
+
 
 
 .hovereffect {
